@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Operas Index</title>
+  </head>
+  <body>
+        <h1>Famous Operas App</h1>
+        <ul>
+              <% for (let i = 0; i < opera.length; i++) { %>
+              <li>
+                <a href="/opera/<%= opera[i].id %>">
+                  <%=opera[i].name%>
+                </a>
+              </li>
+              <% } %>
+            </ul>
+
+    <nav>
+    <a href="/opera/new">Create a New Opera</a>
+</nav>
+  </body>
+</html>
