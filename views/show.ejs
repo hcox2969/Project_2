@@ -1,12 +1,24 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Operas Show</title>
-  </head>
-  <body>
-      <h1>Operas show page</h1>
+<%- include ('./partials/head.ejs') %>
 
-<a href="/opera">Back to Index</a>
+  <body>
+    <div class="body-overlay">
+      <!-- ============ HEADER ============ -->
+      <%- include ('./partials/header.ejs') %>
+      <!-- ============ MAIN ============ -->
+      <main class="show-main">
+
+          <h1><%= opera.name %></h1><br/>
+
+        Composer: <h2><%= opera.composer %></h2>
+        Year created: <h3><%= opera.year_written %></h3>
+        Main Characters:<h3><%= opera.characters %></h3>
+        Famous Performers:<h3><%= opera.famous_performers %></h3>
+        Selected Arias: <h3><%= opera.arias %></h3>
+
+
+    </main>
+<!-- ============ FOOTER ============ -->
+      <%- include ('./partials/footer.ejs') %>
+    </div>
   </body>
 </html>

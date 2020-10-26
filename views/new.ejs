@@ -1,22 +1,25 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>New Form</title>
-  </head>
+<%- include ('./partials/head.ejs') %>
+
   <body>
-    <h1>New Opera Page</h1>
+    <div class="body-overlay">
+      <!-- ============ HEADER ============ -->
+      <%- include ('./partials/header.ejs') %>
+      <!-- ============ MAIN ============ -->
+      <main class="show-main">
+          <h1>Create a New Opera</h1><br/>
+            <form action="/opera" method="POST">
 
-    <form action="/opera" method="POST">
-
-      <label for="name">Name</label>
-      <input type="text" name="name" id="name"/>
-
-      <label for="composer">Composer</label>
-      <input type="text" name="composer" id="composer" />
-
-      <input type="submit" name="" value="Create Opera">
-
-    </form>
-  </body>
-</html>
+              <input type="text" placeholder="name"><br/>
+              <input type="text" placeholder="composer"><br/>
+              <input type="text" placeholder="year written"><br/>
+              <input type="text" placeholder="characters"><br/>
+              <input type="text" placeholder="famous performers"><br/>
+              <input type="text" placeholder="arias"><br/>
+              <input type="submit" value="ADD">
+            </form>
+          </main>
+    <!-- ============ FOOTER ============ -->
+      <%- include ('./partials/footer.ejs') %>
+      </div>
+    </body>
+  </html>

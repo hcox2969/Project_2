@@ -67,15 +67,21 @@ app.post('/opera', (req, res)=>{
       if  (error) {console.log(error)}
       else {
         console.log(createdOpera)
-          res.redirect('/opera')
+       res.redirect('/opera')
       }
   })
 });
-//
-//app.post('/operas/', (req, res) => {
-  //res.send(req.body);
-//});
 
+//
+/*
+app.post('/opera/', (req, res) => {
+Opera.create(req.body, (error, createdOpera) => {
+console.log(createdOpera)
+//res.send(req.body);
+res.redirect('/opera')
+})
+});
+*/
 //*****************Create INDEX Route*******w06d01/***instructor notes****
 //app.get('/opera', (req, res) => {
 //  res.send('index');
