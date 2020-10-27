@@ -9,9 +9,9 @@ const methodOverride = require('method-override');
 //after app has been defined, use method.Override.
 app.use(methodOverride('_method'));
 
-// engaging file .env:
-console.log(process.env.PORT);
-const port = process.env.PORT || 3003;
+//env variables
+const PORT = process.env.PORT
+const mongodbURI = process.env.MONGODBURI
 
 // to use app.css file:
 //tells express to try to match requests with files in the directory called 'public'
@@ -41,7 +41,7 @@ mongoose.connect(mongoURI, {
 
 // ***********Connect Express to Mongo*****w06d01**Instructor Notes
 //... and then farther down the file
-mongoose.connect('mongodb://localhost:27017/operas', { useNewUrlParser: true});
+mongoose.connect(mongodbURI, { useNewUrlParser: true});
 mongoose.connection.once('open', ()=> {
     console.log('connected to mongo');
 });
@@ -54,6 +54,6 @@ const operaController = require('./controllers/operas.js');
 app.use('/opera', operaController);
 
 // port listener:
-app.listen(port, () => {
+app.listen(PORT, () => {
     console.log("I am listening on port", port);
 });
