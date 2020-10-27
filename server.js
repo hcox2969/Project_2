@@ -55,5 +55,5 @@ app.use('/opera', operaController);
 
 // port listener:
 app.listen(PORT, () => {
-    console.log("I am listening on port", port);
+    console.log("I am listening on port", PORT);
 });
