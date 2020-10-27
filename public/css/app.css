@@ -15,7 +15,7 @@ a {
 }
 /* *******Containers****** */
 .body-overlay {
-  
+background: rgba(245, 245, 245, 0.4);
   width: 100%;
   height: 100%;
   top: 0;
@@ -30,7 +30,7 @@ main, header, footer {
   margin: 0 auto;
   padding: 1em 3em;
   box-sizing: border-box;
-  background: #f9f9f9;
+  background: rgb(237, 192, 171);
   border-radius: 1em;
   text-align: center;
   box-shadow: 1px 1px 5px #888;
@@ -55,10 +55,10 @@ header li {
   text-transform: uppercase;
 }
 header li a {
-  color: rgb(152, 130, 110);
+  color: rgb(143, 110, 152);
 }
 header h1 {
-  color: rgb(129, 110, 124);
+  color: rgb(82, 32, 68);
 }
 
 /* *******Index****** */
@@ -72,7 +72,7 @@ li {
   margin: 1em 0;
 }
 li a {
-  color: rgb(129, 110, 124);
+  color: rgb(112, 56, 97);
   text-shadow: 1px 1px #eee;
   font-size: 1.1em;
   display: inline-block;
@@ -81,10 +81,10 @@ li a {
 li a:after {
   content: '';
   display: block;
-  width: 0%;
+  width: 5%;
   height: 1px;
   margin-top: 0.2em;
-  background: #ccc;
+  background: #eeaaaa;
   transition: 0.7s ease-in-out;
 }
 li a:hover:after {
@@ -92,8 +92,8 @@ li a:hover:after {
 }
 main h1 {
   display: inline-block;
-  color: rgb(142, 89, 81);
-  border-bottom: 4px solid rgb(219, 207, 197);
+  color: rgb(142, 81, 142);
+  border-bottom: 4px solid rgb(212, 197, 219);
   padding-bottom: 0.2em;
   width: 70%;
   margin-bottom: 0.5em;
@@ -123,14 +123,14 @@ img {
   width: 70%;
   margin: 1.5em auto 1.3em auto;
   padding-top: 0.5em;
-  border-top: 5px solid rgba(219, 207, 197, 0.5);
+  border-top: 5px solid rgba(104, 47, 125, 0.5);
   font-weight: 700;
   text-transform: uppercase;
-  color: rgb(142, 89, 81);
+  color: rgb(104, 81, 142);
   transition: 0.3s ease-in-out;
 }
 .back-btn:hover {
-  color: rgb(129, 110, 124);
+  color: rgb(130, 53, 110);
 }
 
 /************New********/
@@ -153,7 +153,7 @@ input[type="submit"] {
 }
 input[type="submit"]:hover {
   cursor: pointer;
-  background: rgb(142, 89, 81);
+  background: rgb(139, 81, 142);
 }
 form strong {
   text-transform: uppercase;

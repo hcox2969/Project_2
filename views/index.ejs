@@ -14,9 +14,14 @@
                 <a href="/opera/<%= opera[i].id %>">
                   <%=opera[i].name%>
                 </a>
+                    <a href="/opera/<%=opera[i].id %>">DELETE</a>
+
+                    <a href="/opera/<%=opera[i].id %>/edit">EDIT</a>
+
               </li>
               <% } %>
             </ul>
+
             </h1>
           </div>
         </main>
@@ -25,4 +30,3 @@
       <%- include ('./partials/footer.ejs') %>
   </div>
   </body>
-</html>

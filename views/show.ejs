@@ -7,7 +7,7 @@
       <!-- ============ MAIN ============ -->
       <main class="show-main">
 
-          <h1><%= opera.name %></h1><br/>
+          <h1><a href="<%=opera.url%>"><%= opera.name %></a></h1><br/>
 
         Composer: <h2><%= opera.composer %></h2>
         Year created: <h3><%= opera.year_written %></h3>
@@ -21,4 +21,3 @@
       <%- include ('./partials/footer.ejs') %>
     </div>
   </body>
-</html>

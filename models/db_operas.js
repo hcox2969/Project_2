@@ -5,7 +5,7 @@ db.operas.insert(
       composer: 'Wolfgang Amadeus Mozart',
       year_written: 1791,
       characters: ['Tamino', 'Papageno', 'Pamina', 'The Queen of the Night', 'Sarastro'],
-      famous_performers: ['Markus Werba','Aulikki Rautawaara', 'Ernst Haefliger', 'Josef Greindl'],
+      famous_performers: ['Markus Werba', 'Aulikki Rautawaara', 'Ernst Haefliger', 'Josef Greindl'],
       arias: ['O Isis und Orisis', 'In diesen heiligen Hallen', 'Der Hoelle Rache', 'Ach, ich fuehls'],
     },
     {

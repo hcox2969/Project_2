@@ -3,6 +3,7 @@ const Schema = mongoose.Schema
 
 const operaSchema = new Schema ({
   name: String,
+  url: String,
   composer: String,
   year_written: Number,
   characters: Array,

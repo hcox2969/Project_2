@@ -1,0 +1,29 @@
+<%- include ('./partials/head.ejs') %>
+
+  <body>
+  <div class="body-overlay">
+    <!-- ============ HEADER ============ -->
+      <%- include ('./partials/header.ejs') %>
+        <!-- ============ MAIN ============ -->
+        <main class="show-main">
+
+        <h1>Edit Opera Page</h1>
+        <form method="POST" action="/opera/<%=opera.id%>?_method=PUT" >
+
+            		Name: <input type="text" name="name" value="<%=opera.name%>"/><br/>
+                URL: <input type="text" name="url" value="<%=opera.url%>"/><br/>
+            		Composer: <input type="text" name="composer" value="<%=opera.composer%>"/><br/>
+                Year written: <input type="number" name="year_written" value="<%=opera.year_written%>"/><br/>
+                Characters: <input type="text" name="characters" value="<%=opera.characters%>"/><br/>
+                Famous Performers:<input type="text" name="famous_performers" value="<%=opera.famous_performers%>"/><br/>
+                Arias:<input type="text" name="aria" value="<%=opera.aria%>"/><br/>
+
+               <input type="submit" name="" value="EDIT"/>
+
+            </form >
+        </main>
+
+        <!-- ============ FOOTER ============ -->
+              <%- include ('./partials/footer.ejs') %>
+      </div>
+    </body>

@@ -28,6 +28,12 @@ mongoose.connect(mongoURI, {
  console.log('the connection with mongod is established')
 })
 */
+//**************Include the method-override package
+const methodOverride = require('method-override');
+//after app has been defined, use method.Override.
+app.use(methodOverride('_method'));
+
+
 // ***********Connect Express to Mongo*****w06d01**Instructor Notes
 //... and then farther down the file
 mongoose.connect('mongodb://localhost:27017/operas', { useNewUrlParser: true});
@@ -58,19 +64,20 @@ app.get('/opera/new', (req, res) => {
 });
 
 //*********Create Create Route***w06d01**Instructor Notes***
-//app.get('/opera/', (req, res) => {
-//  res.send('received');
+//app.post('/opera/', (req, res) => {
+//  res.send(req.body);
 //});
 
-app.post('/opera', (req, res)=>{
+app.post('/opera/', (req, res)=>{
     Opera.create(req.body, (error, createdOpera) => {
       if  (error) {console.log(error)}
       else {
-        console.log(createdOpera)
-       res.redirect('/opera')
-      }
+      console.log(createdOpera)
+      res.redirect('/opera')
+       //res.send(createdOpera)
+     }
   })
-});
+})
 
 //
 /*
@@ -109,6 +116,31 @@ app.get('/opera/:id', (req, res) =>{
   })
 })
 
+
+//***********Delete Route******
+app.delete('/opera/:id', (req, res) => {
+  Opera.findByIdAndRemove(req.params.id, (err, data) => {
+      res.redirect('/opera');
+  })
+})
+
+//*************Edit Route********
+app.get('/opera/:id/edit', (req, res)=>{
+    Opera.findById(req.params.id, (err, allOperas)=>{
+        res.render(
+    		'edit.ejs',
+    		{
+    		opera: allOperas
+    		});
+    });
+});
+//*********Create an PUT route**'update'***
+app.put('/opera/:id', (req, res)=>{
+    Opera.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
+      //res.send(updatedModel);
+      res.redirect('/opera');
+    });
+});
 
 // port listener:
 app.listen(port, () => {
