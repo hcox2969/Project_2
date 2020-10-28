@@ -13,7 +13,7 @@ const Opera = require('../models/operas.js')
 
 //************Create New Route******w06d01**Instructor Notes***
 router.get('/new', (req, res) => {
-  res.render('new.ejs');
+  res.render('opera/new.ejs');
 });
 
 //*********Create Create Route***w06d01**Instructor Notes***
@@ -54,16 +54,40 @@ res.redirect('/opera')
 // have Index Route Render All operaSchema
 router.get('/', (req, res) =>{
   Opera.find({}, (error, allOperas) => {
-    res.render('index.ejs', {
+    res.render('opera/index.ejs', {
       opera: allOperas
     })
   })
 })
 
+router.get('/seed', (req, res) => {
+  Opera.create([
+  {
+    name: 'Lohengrin',
+    composer: 'Richard Wagner',
+    year_written: 1848,
+    characters: ['Lohengrin', 'Elsa of Brabant', 'Ortrud', 'Heinrich der Vogler'],
+    famous_performers: ['Karita Marrila', 'Ernest van Dyck', 'Fides Devries', 'Rose Caron'],
+    arias:['Mein lieber Schwan','Einsam in trueben Tage', 'Euch lueften, die mein Klagen']
+  },
+  {
+    name: 'Macbeth',
+    composer: 'Guiseppe Verdi',
+    year_written: 1847,
+    characters: ['Macbeth', 'Lady Macbeth', 'Banquo','Macduff', 'Malcolm'],
+    famous_performers:['Birgit Nilsson', 'Felice Varesi', 'Marianna Barbieri-Nini', 'Ellen Terry'],
+    arias:['Ambizioso spirito tu sei', 'Giorno Non Vidi Mai Si Fiero E Bello', 'Mal per me che maffidai']
+  }
+], (err, data) => {
+  res.redirect('opera')
+  })
+});
+
+
 //*************Create show.ejs
 router.get('/:id', (req, res) =>{
   Opera.findById(req.params.id, (err, allOperas) => {
-    res.render('show.ejs', {
+    res.render('opera/show.ejs', {
       opera: allOperas
     })
   })
@@ -81,7 +105,7 @@ router.delete('/:id', (req, res) => {
 router.get('/:id/edit', (req, res)=>{
     Opera.findById(req.params.id, (err, allOperas)=>{
         res.render(
-    		'edit.ejs',
+    		'opera/edit.ejs',
     		{
     		opera: allOperas
     		});

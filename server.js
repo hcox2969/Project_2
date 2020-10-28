@@ -9,6 +9,8 @@ const methodOverride = require('method-override');
 //after app has been defined, use method.Override.
 app.use(methodOverride('_method'));
 
+const session = require('express-session')
+
 //env variables
 const PORT = process.env.PORT
 const mongodbURI = process.env.MONGODBURI
@@ -55,6 +57,15 @@ app.use('/opera', operaController);
 app.use('/', (req, res) => {
   res.redirect('/opera')
 })
+
+const usersController = require('./controllers/users.js')
+//const userController = require('./controllers/users_controller.js')
+app.use('/users', usersController)
+
+app.get('/', (req, res) => {
+  res.render('home.ejs')
+})
+
 // port listener:
 app.listen(PORT, () => {
     console.log("I am listening on port", PORT);
