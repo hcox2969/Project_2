@@ -52,7 +52,9 @@ mongoose.connection.once('open', ()=> {
 //Use Controller File in Server.js
 const operaController = require('./controllers/operas.js');
 app.use('/opera', operaController);
-
+app.use('/', (req, res) => {
+  res.redirect('/opera')
+})
 // port listener:
 app.listen(PORT, () => {
     console.log("I am listening on port", PORT);
