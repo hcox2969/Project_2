@@ -54,9 +54,9 @@ mongoose.connection.once('open', ()=> {
 //Use Controller File in Server.js
 const operaController = require('./controllers/operas.js');
 app.use('/opera', operaController);
-app.use('/', (req, res) => {
-  res.redirect('/opera')
-})
+//app.use('/', (req, res) => {
+  //res.redirect('/opera')
+//})
 
 const usersController = require('./controllers/users.js')
 //const userController = require('./controllers/users_controller.js')
