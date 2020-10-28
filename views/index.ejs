@@ -7,22 +7,25 @@
         <!-- ============ MAIN ============ -->
         <main>
           <div>
-            <h1>Select:
+            <h1>Select:</h1>
             <ul>
               <% for (let i = 0; i < opera.length; i++) { %>
               <li>
-                <a href="/opera/<%= opera[i].id %>">
+                <h1><a href="/opera/<%= opera[i].id %>">
                   <%=opera[i].name%>
-                </a>
-                    <a href="/opera/<%=opera[i].id %>">DELETE</a>
+                </a></h1><br/>
 
-                    <a href="/opera/<%=opera[i].id %>/edit">EDIT</a>
+                    <h5><a href="/opera/<%=opera[i].id %>/edit">EDIT</a></h5>
+
+                    <form action="/opera/<%=opera[i].id %>?_method=DELETE" method="POST">
+                      <input type="submit" value="DELETE">
+                    </form>
 
               </li>
               <% } %>
             </ul>
 
-            </h1>
+
           </div>
         </main>
 

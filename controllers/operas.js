@@ -72,7 +72,7 @@ router.get('/:id', (req, res) =>{
 
 //***********Delete Route******
 router.delete('/:id', (req, res) => {
-  Opera.findByIdAndRemove(req.params.id, (err, data) => {
+    Opera.findByIdAndRemove(req.params.id, (err, data) => {
       res.redirect('/opera');
   })
 })

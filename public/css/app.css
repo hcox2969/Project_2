@@ -67,6 +67,7 @@ ul {
   padding: 0;
   margin: 0 0 2em 0;
   font-family: 'Inconsolata', courier;
+  font-size: 1.1em;
 }
 li {
   margin: 1em 0;
@@ -103,6 +104,18 @@ main > div {
 }
 main.show-main {
   display: block;
+}
+
+form {
+  background: rgb(237, 192, 171);
+  padding: 1px 1px;
+  color: green;
+  border: none;
+  border-radius: 1px;
+  animation-name: flash;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }
 
 /********Show**************/
@@ -143,7 +156,7 @@ input[type="text"], input[type="submit"] {
   margin: 0.5em 0;
 }
 input[type="submit"] {
-  width: 61%;
+  width: 60%;
   font-family: 'Montserrat';
   font-weight: 700;
   text-transform: uppercase;
