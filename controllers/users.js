@@ -2,9 +2,12 @@ const bcrypt = require('bcrypt')
 const express = require('express')
 const users = express.Router()
 const User = require('../models/users.js')
+const app = express();//app is an object
+
+
 
 users.get('/new', (req, res) => {
-  res.render('users/new.ejs')
+  res.render('users/new.ejs', { currentUser: req.session.currentUser })
 })
 
 users.post('/', (req, res) => {
@@ -15,5 +18,9 @@ users.post('/', (req, res) => {
     res.redirect('/opera')
   })
 })
+
+
+
+
 
 module.exports = users

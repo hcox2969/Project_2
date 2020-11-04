@@ -11,9 +11,16 @@ const Opera = require('../models/operas.js')
   //db.close();
 //});
 
+const isAuthenticated = (req, res, next) => {
+    if (req.session.currentUser) {
+      return next()
+    } else {
+    res.redirect('/users/new')
+    }
+}
 //************Create New Route******w06d01**Instructor Notes***
-router.get('/new', (req, res) => {
-  res.render('opera/new.ejs');
+router.get('/new', isAuthenticated, (req, res) => {
+  res.render('opera/new.ejs', { currentUser: req.session.currentUser });
 });
 
 //*********Create Create Route***w06d01**Instructor Notes***
@@ -55,7 +62,8 @@ res.redirect('/opera')
 router.get('/', (req, res) =>{
   Opera.find({}, (error, allOperas) => {
     res.render('opera/index.ejs', {
-      opera: allOperas
+      opera: allOperas,
+      currentUser: req.session.currentUser
     })
   })
 })
@@ -86,11 +94,12 @@ router.get('/seed', (req, res) => {
 
 //*************Create show.ejs
 router.get('/:id', (req, res) =>{
-  Opera.findById(req.params.id, (err, allOperas) => {
-    res.render('opera/show.ejs', {
-      opera: allOperas
+    Opera.findById(req.params.id, (err, allOperas) => {
+      res.render('opera/show.ejs', {
+      opera: allOperas,
+      currentUser: req.session.currentUser
+      })
     })
-  })
 })
 
 
@@ -107,7 +116,8 @@ router.get('/:id/edit', (req, res)=>{
         res.render(
     		'opera/edit.ejs',
     		{
-    		opera: allOperas
+    		opera: allOperas,
+         currentUser: req.session.currentUser
     		});
     });
 });

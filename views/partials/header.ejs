@@ -1,7 +1,23 @@
 <header>
   <h1>Famous Operas App</h1>
-  <ul>
-    <li><a href="/opera">Back to Homepage</a></li>
+<nav>
+  <ul class="right">
+      <% if (currentUser) { %>
+    <li>Welcome <%= currentUser.username%></li>
+    <li>
+  <form class="" action="/sessions?_method=DELETE" method="POST">
+    <input type="submit" value="Log Out" class="btn-small red" />
+  </form>
+    </li>
+  <% } else { %>
+    <li><a href="/users/new">Sign Up</a></li>
+    <li><a href="/users/login">Log In</a></li>
+      <% } %>
+      <li><a href="/opera">Back to Homepage</a></li>
     <li><a href="/opera/new">Create a New Opera</a></li>
+     <% if (currentUser) { %>
+      Welcome <%= currentUser.username %>
+    <% } %>
   </ul>
+</nav>
 </header>

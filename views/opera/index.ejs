@@ -3,7 +3,7 @@
   <body>
   <div class="body-overlay">
     <!-- ============ HEADER ============ -->
-      <%- include ('../partials/header.ejs') %>
+  <%- include ('../partials/header.ejs') %>
         <!-- ============ MAIN ============ -->
         <main>
           <div>
@@ -11,7 +11,7 @@
             <ul>
               <% for (let i = 0; i < opera.length; i++) { %>
               <li>
-                <h1><a href="/opera/<%= opera[i].id %>">
+                <h1><a href="/opera/<%=opera[i].id %>">
                   <%=opera[i].name%>
                 </a></h1><br/>
 

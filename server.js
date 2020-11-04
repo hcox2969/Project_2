@@ -19,7 +19,14 @@ const mongodbURI = process.env.MONGODBURI
 //tells express to try to match requests with files in the directory called 'public'
 app.use(express.static('public'));
 
-
+// add sessions:
+app.use(
+  session({
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: false
+  })
+)
 // connect to Mongo and have it connect to the sub-database tweets
  // if it does not exist it will be created
 
@@ -62,8 +69,12 @@ const usersController = require('./controllers/users.js')
 //const userController = require('./controllers/users_controller.js')
 app.use('/users', usersController)
 
+// add sessions controllers:
+// const usersSessionsController = require('./controllers/usersSessions.js')
+// app.use('/usersSessions', usersSessionsController)
+
 app.get('/', (req, res) => {
-  res.render('home.ejs')
+  res.render('home.ejs', { currentUser: req.session.currentUser })
 })
 
 // port listener:
