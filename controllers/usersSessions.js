@@ -5,7 +5,7 @@ const User = require('../models/users.js')
 
 
 usersSessions.get('/new', (req, res) => {
-res.render('sessions/new.ejs', { currentUser: req.session.currentUser })
+res.render('users/new.ejs', { currentUser: req.session.currentUser })
 })
 
 // on session sform submit (log in)
