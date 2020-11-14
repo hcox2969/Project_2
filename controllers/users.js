@@ -61,7 +61,11 @@ User.findOne({username: req.body.username } , (err, foundUser) => {
     }
   })
 })
-
+users.delete('/', (req, res) => {
+  req.session.destroy(() => {
+    res.redirect('/')
+  })
+})
 
 
 

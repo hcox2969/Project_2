@@ -3,9 +3,8 @@
 <nav>
   <ul class="right">
       <% if (currentUser) { %>
-    <li>Welcome <%= currentUser.username%></li>
     <li>
-  <form class="" action="/sessions?_method=DELETE" method="POST">
+  <form class="" action="/users?_method=DELETE" method="POST">
     <input type="submit" value="Log Out" class="btn-small red" />
   </form>
     </li>
